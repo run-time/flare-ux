@@ -1,5 +1,5 @@
 /* Everything Flare UX needs on the page, in one stylesheet:
-     <link rel="stylesheet" href="flare-ux/src/styles/flare.css">
+     <link rel="stylesheet" href="node_modules/@run-time/flare-ux/src/styles/flare.css">
    The parts can be linked one by one instead; base.css is optional. */
 @import url("./colors.css");
 @import url("./tokens.css");

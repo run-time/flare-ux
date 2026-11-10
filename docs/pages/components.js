@@ -1428,7 +1428,7 @@ export const COMPONENTS = [
         }),
       },
     ],
-    notes: `<p><code>import { confirmAction, askInputs, alertMessage } from "flare-ux"</code>.</p>
+    notes: `<p><code>import { confirmAction, askInputs, alertMessage } from "@run-time/flare-ux"</code>.</p>
       <ul>
         <li><code>confirmAction(options)</code> resolves <code>true</code> on confirm, <code>false</code> otherwise, or <code>"alternate"</code> for the secondary action.</li>
         <li><code>askInputs(options)</code> with <code>fields</code> resolves <code>{ [key]: value }</code>, or <code>null</code> when canceled. A form closes only through its own buttons.</li>

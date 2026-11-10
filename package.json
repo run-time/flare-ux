@@ -1,9 +1,15 @@
 {
-  "name": "flare-ux",
+  "name": "@run-time/flare-ux",
   "version": "0.1.0",
   "description": "Flare UX: a pattern library of native web components, with its own color, type, spacing and icon tokens.",
+  "license": "Unlicense",
+  "homepage": "https://flare-ux.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/run-time/flare-ux.git"
+  },
+  "bugs": "https://github.com/run-time/flare-ux/issues",
   "type": "module",
-  "private": true,
   "main": "./src/index.js",
   "module": "./src/index.js",
   "exports": {
@@ -12,7 +18,10 @@
     "./icons/*": "./src/icons/*",
     "./lib/*": "./src/lib/*",
     "./styles/*": "./src/styles/*",
-    "./flare.css": "./src/styles/flare.css"
+    "./flare.css": "./src/styles/flare.css",
+    "./src/*": "./src/*",
+    "./AGENTS.md": "./AGENTS.md",
+    "./package.json": "./package.json"
   },
   "files": [
     "src",
@@ -24,11 +33,15 @@
     "./src/icons/*.js",
     "./src/styles/*.css"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "check": "node scripts/check.mjs",
-    "build:colors": "node scripts/build-colors.mjs"
+    "build:colors": "node scripts/build-colors.mjs",
+    "prepublishOnly": "npm run check"
   },
   "engines": {
     "node": ">=18"

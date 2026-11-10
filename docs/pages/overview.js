@@ -1,7 +1,8 @@
 // The landing page: what Flare UX is and how to start.
 
-const START = `<link rel="stylesheet" href="flare-ux/src/styles/flare.css">
-<script type="module" src="flare-ux/src/index.js"></script>
+const START = `<!-- npm install @run-time/flare-ux, then import "@run-time/flare-ux" and its flare.css; or straight from a CDN: -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/src/styles/flare.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/src/index.js"></script>
 
 <fx-button variant="filled" icon="plus">New project</fx-button>`;
 

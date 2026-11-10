@@ -10,6 +10,15 @@ import { OVERVIEW } from "./pages/overview.js";
 const page = document.getElementById("page");
 const nav = document.querySelector("fx-nav");
 
+// The version in the nav footer, from package.json so a release updates it.
+fetch(new URL("../package.json", import.meta.url))
+  .then((response) => response.json())
+  .then(({ version }) => {
+    const footer = document.querySelector(".nav-footer");
+    if (footer && version) footer.textContent = `v${version}`;
+  })
+  .catch(() => {});
+
 // ------------------------------------------------------------- the pages
 
 const routes = new Map();
@@ -87,7 +96,7 @@ function render(doc) {
     ${doc.lead ? `<p class="lead">${doc.lead}</p>` : ""}
     ${doc.body ? doc.body() : ""}
     ${examples.length ? `<h2>Examples</h2>${examples.map(exampleHtml).join("")}` : ""}
-    ${doc.attributes || doc.events || doc.methods ? `<h2>API</h2>${doc.tag ? `<p><code>&lt;${doc.tag}&gt;</code> &mdash; import <code>flare-ux/components/${doc.tag}.js</code>, or all of <code>flare-ux</code>.</p>` : ""}${apiTables(doc)}` : ""}
+    ${doc.attributes || doc.events || doc.methods ? `<h2>API</h2>${doc.tag ? `<p><code>&lt;${doc.tag}&gt;</code> &mdash; import <code>@run-time/flare-ux/components/${doc.tag}.js</code>, or all of <code>@run-time/flare-ux</code>.</p>` : ""}${apiTables(doc)}` : ""}
     ${doc.notes ? `<h2>Notes</h2>${doc.notes}` : ""}
   `;
   // Each example's source, from the template, before any script changes the live copy.

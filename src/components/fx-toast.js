@@ -2,7 +2,7 @@
 // page and goes away on its own -- "Copied", "Saved". A persistent one stays
 // until its close button is clicked.
 //
-//   import { toast } from "flare-ux/components/fx-toast.js";
+//   import { toast } from "@run-time/flare-ux/components/fx-toast.js";
 //   toast("Copied #ff8389");                                    // gone after 4s
 //   toast("Saved", { tone: "success" });
 //   toast("Lost the connection", { tone: "error", persistent: true });

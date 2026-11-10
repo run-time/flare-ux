@@ -21,19 +21,41 @@ component with live examples and API tables.
 
 ## Use it
 
-```html
-<link rel="stylesheet" href="flare-ux/src/styles/flare.css">
-<script type="module">
-  import "flare-ux/src/index.js"; // every component and icon
-</script>
+```sh
+npm install @run-time/flare-ux      # npm update @run-time/flare-ux to upgrade
+```
 
+With a bundler (Vite, esbuild, …):
+
+```js
+import "@run-time/flare-ux/flare.css";                  // tokens, colors, base styles
+import "@run-time/flare-ux";                            // every component and icon
+import "@run-time/flare-ux/components/fx-button.js";    // or only what a page uses
+import { toast } from "@run-time/flare-ux/components/fx-toast.js";
+```
+
+```html
 <fx-button variant="filled" icon="plus">New project</fx-button>
 <fx-status-chip tone="pass">Passed</fx-status-chip>
 ```
 
-Or import one component: `flare-ux/src/components/fx-button.js`. Through a
-bundler or import map the package exports `flare-ux`, `flare-ux/components/*`,
-`flare-ux/icons/*`, `flare-ux/styles/*` and `flare-ux/flare.css`.
+The package exports `@run-time/flare-ux`, `/components/*`, `/icons/*`,
+`/lib/*`, `/styles/*` and `/flare.css` (and `/src/*` for the full paths).
+
+Without installing anything, load it from a CDN (pin a version):
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/src/styles/flare.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/src/index.js"></script>
+```
+
+## Release
+
+```sh
+npm version patch      # or minor / major: bumps package.json, commits, tags
+npm publish            # runs npm run check first
+git push --follow-tags
+```
 
 ## What is in it
 
