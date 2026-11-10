@@ -1,0 +1,42 @@
+{
+  "name": "flare-ux",
+  "version": "0.1.0",
+  "description": "Flare UX: a pattern library of native web components, with its own color, type, spacing and icon tokens.",
+  "type": "module",
+  "private": true,
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./components/*": "./src/components/*",
+    "./icons/*": "./src/icons/*",
+    "./lib/*": "./src/lib/*",
+    "./styles/*": "./src/styles/*",
+    "./flare.css": "./src/styles/flare.css"
+  },
+  "files": [
+    "src",
+    "AGENTS.md"
+  ],
+  "sideEffects": [
+    "./src/index.js",
+    "./src/components/*.js",
+    "./src/icons/*.js",
+    "./src/styles/*.css"
+  ],
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "build:colors": "node scripts/build-colors.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "design-system",
+    "pattern-library"
+  ]
+}

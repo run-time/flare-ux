@@ -1,0 +1,181 @@
+/* The docs site's own layout -- nothing here is part of the library. */
+
+body { overflow: hidden; }
+
+.brand { display: inline-flex; align-items: center; gap: var(--fx-spacing-03); padding: 0 var(--fx-spacing-03); color: inherit; text-decoration: none; font: 300 var(--fx-font-size-03) var(--fx-font); }
+.brand b { font-weight: 700; }
+.brand-mark { width: 1.5rem; height: 1.5rem; background: url("favicon.svg") center / contain no-repeat; }
+.nav-footer { display: block; padding: var(--fx-spacing-03) var(--fx-spacing-05); color: var(--fx-text-secondary); font: var(--fx-type-helper-01); }
+fx-app-shell[rail] .nav-footer { visibility: hidden; }
+
+.docs-page { display: block; max-width: 68rem; padding: var(--fx-spacing-07) var(--fx-spacing-07) var(--fx-spacing-12); outline: none; }
+@media (max-width: 671.98px) { .docs-page { padding: var(--fx-spacing-06) var(--fx-spacing-05) var(--fx-spacing-10); } }
+
+.eyebrow { margin-bottom: var(--fx-spacing-03); color: var(--fx-text-secondary); font: var(--fx-type-label-01); letter-spacing: 0.06em; text-transform: uppercase; }
+.docs-page h1 { font: var(--fx-type-heading-05); margin-bottom: var(--fx-spacing-04); }
+.docs-page h2 { font: var(--fx-type-heading-03); margin: var(--fx-spacing-09) 0 var(--fx-spacing-04); padding-top: var(--fx-spacing-03); }
+.docs-page h3 { font: var(--fx-type-heading-02); margin: var(--fx-spacing-07) 0 var(--fx-spacing-03); }
+.docs-page p, .docs-page li { font: var(--fx-type-body-02); max-width: 46rem; }
+.docs-page p + p { margin-top: var(--fx-spacing-04); }
+.docs-page ul { padding-left: var(--fx-spacing-06); }
+.lead { color: var(--fx-text-secondary); font: var(--fx-type-body-02); font-size: var(--fx-font-size-04) !important; max-width: 44rem; }
+
+/* An example: the live thing on a plain panel, its source underneath. */
+.example { margin-top: var(--fx-spacing-05); }
+.example-desc { margin-bottom: var(--fx-spacing-04); color: var(--fx-text-secondary); }
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--fx-spacing-05);
+  padding: var(--fx-spacing-07) var(--fx-spacing-06);
+  border: 1px solid var(--fx-border);
+  border-bottom: 0;
+  border-radius: var(--fx-radius) var(--fx-radius) 0 0;
+  background: var(--fx-layer);
+}
+/* Columns do not wrap: a wrapping column sizes its items as if narrow,
+   and anything that grows when narrow (a grid of cards) comes out tall. */
+.demo.stack { flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+.demo.column { flex-direction: column; flex-wrap: nowrap; align-items: flex-start; }
+.demo.grid-3 { display: grid; grid-template-columns: repeat(3, max-content); justify-content: start; align-items: center; }
+.example fx-copy-block { border-radius: 0 0 var(--fx-radius) var(--fx-radius); }
+.demo label { display: inline-flex; align-items: center; gap: var(--fx-spacing-03); font: var(--fx-type-body-compact-01); cursor: pointer; }
+.demo .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--fx-spacing-05); }
+.demo .log { min-height: 1.5em; color: var(--fx-text-secondary); font: var(--fx-type-helper-01); }
+
+.api { margin-top: var(--fx-spacing-04); }
+.api code { white-space: nowrap; }
+
+/* Foundations */
+.swatch-family { margin-top: var(--fx-spacing-06); }
+.swatch-family h3 { margin: 0 0 var(--fx-spacing-03); text-transform: capitalize; }
+/* A family's ten steps in one row; five a row once a swatch would drop under
+   about 5rem. Black & white take two of those columns. */
+.swatch-family { --cols: 10; container-type: inline-size; }
+@container (max-width: 50rem) { .swatches { --cols: 5; } }
+@container (max-width: 25rem) { .swatches { --cols: 2; } }
+.swatches { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); border: 1px solid var(--fx-border); border-radius: var(--fx-radius); overflow: hidden; }
+.swatches.pair { grid-template-columns: repeat(2, minmax(0, 1fr)); width: calc(200% / var(--cols)); }
+.swatch { all: unset; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; min-height: 5.5rem; padding: var(--fx-spacing-03); font: var(--fx-type-helper-01); cursor: pointer; }
+.swatch:focus-visible { outline: 2px solid var(--fx-focus); outline-offset: -4px; }
+.swatch b { font-weight: 600; }
+.swatch .hex { align-self: flex-start; margin: -2px -4px; padding: 2px 4px; border-radius: var(--fx-radius-sm); font-family: var(--fx-font-mono); font-size: var(--fx-font-size-01); opacity: 0.85; }
+.swatch .hex:hover { opacity: 1; background: color-mix(in srgb, currentColor 14%, transparent); text-decoration: underline; }
+
+/* A vertical list, each row as wide as the article's text. */
+.status-grid { display: flex; flex-direction: column; gap: var(--fx-spacing-04); max-width: 46rem; margin-top: var(--fx-spacing-05); }
+.status-card { border: 1px solid var(--fx-border); border-radius: var(--fx-radius); background: var(--fx-layer); overflow: hidden; }
+.status-card .fill { padding: var(--fx-spacing-03) var(--fx-spacing-05); font: 600 var(--fx-font-size-05) / 1.4 var(--fx-font); }
+.status-card .meta { display: flex; flex-direction: column; gap: var(--fx-spacing-03); padding: var(--fx-spacing-04) var(--fx-spacing-05); }
+.docs-page .status-card .meta p { font: var(--fx-type-body-01); }
+.status-card .facts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--fx-spacing-03) var(--fx-spacing-05); color: var(--fx-text-secondary); font: var(--fx-type-body-compact-01); }
+.status-card code { font-size: var(--fx-font-size-01); }
+
+.type-row { display: grid; grid-template-columns: 12rem 1fr; gap: var(--fx-spacing-05); align-items: baseline; padding: var(--fx-spacing-05) 0; border-bottom: 1px solid var(--fx-border); }
+.type-row .meta { color: var(--fx-text-secondary); font: var(--fx-type-helper-01); }
+.type-row .meta code { font-size: var(--fx-font-size-01); }
+@media (max-width: 671.98px) { .type-row { grid-template-columns: 1fr; gap: var(--fx-spacing-02); } }
+
+.spacing-row { display: grid; grid-template-columns: 9rem 4rem 1fr; gap: var(--fx-spacing-05); align-items: center; padding: var(--fx-spacing-03) 0; border-bottom: 1px solid var(--fx-border); font: var(--fx-type-body-compact-01); }
+.spacing-bar { height: 1rem; background: var(--fx-color-blue-40); }
+
+.icon-count { color: var(--fx-text-secondary); font: var(--fx-type-helper-01); margin-top: var(--fx-spacing-03); }
+/* Each cell draws its own right and bottom line, so a short last row ends
+   cleanly instead of showing an empty gray band. */
+.icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); margin-top: var(--fx-spacing-04); border-top: 1px solid var(--fx-border); border-left: 1px solid var(--fx-border); }
+.icon-grid[hidden] { display: none; }
+.icon-cell { all: unset; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--fx-spacing-03); min-height: 6.5rem; padding: var(--fx-spacing-03); border-right: 1px solid var(--fx-border); border-bottom: 1px solid var(--fx-border); background: var(--fx-layer); color: var(--fx-text); text-align: center; cursor: pointer; }
+.icon-cell:hover { background: var(--docs-hover); }
+.icon-cell:focus-visible { outline: 2px solid var(--fx-focus); outline-offset: -2px; }
+.icon-cell span { max-width: 100%; color: var(--fx-text-secondary); font: var(--fx-font-size-01) / 1.3 var(--fx-font-mono); overflow-wrap: anywhere; }
+
+.token-table { width: 100%; border-collapse: collapse; margin-top: var(--fx-spacing-04); font: var(--fx-type-body-compact-01); }
+.token-table th, .token-table td { padding: var(--fx-spacing-03) var(--fx-spacing-04); border-bottom: 1px solid var(--fx-border); text-align: left; vertical-align: middle; }
+.token-table td code { white-space: nowrap; }
+.token-table th { background: var(--fx-layer-alt); font: var(--fx-type-heading-01); }
+.token-chip { display: inline-block; width: 1.25rem; height: 1.25rem; border: 1px solid var(--fx-border); border-radius: var(--fx-radius-sm); vertical-align: middle; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--fx-spacing-05); margin-top: var(--fx-spacing-06); }
+.card-link { display: flex; flex-direction: column; gap: var(--fx-spacing-03); padding: var(--fx-spacing-05); border: 1px solid var(--fx-border); border-radius: var(--fx-radius); background: var(--fx-layer); color: inherit; text-decoration: none; }
+.card-link:hover { background: var(--fx-layer-hover); color: inherit; }
+.card-link fx-icon { color: var(--fx-interactive-text); }
+.card-link strong { font: var(--fx-type-heading-02); }
+.card-link span { color: var(--fx-text-secondary); font: var(--fx-type-body-compact-01); }
+
+/* The copied color, shown in the Colors page's toast. Outlined so white and
+   near-black still read against the toast. */
+fx-toast code.toast-swatch {
+  display: inline-block;
+  padding: 0.125rem var(--fx-spacing-03);
+  border-radius: var(--fx-radius-sm);
+  border: 0;
+  box-shadow: inset 0 0 0 1px rgb(128 128 128 / 0.5);
+  font: 600 var(--fx-font-size-01) / 1.4 var(--fx-font-mono);
+}
+
+/* The Form page: fields in a grid, two or three across. */
+.demo fx-form { flex: 1; min-width: 0; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--fx-spacing-05); align-items: start; }
+.form-grid > * { min-width: 0; }
+.form-grid fx-text-field, .form-grid fx-select { width: 100%; }
+.form-grid fx-select { display: flex; }
+.form-grid .wide { grid-column: 1 / -1; }
+
+/* "Copied" and what was copied, in the Colors and Icons pages' toasts: one
+   row, every piece centered on the same line. */
+fx-toast .toast-copied { display: inline-flex; align-items: center; gap: var(--fx-spacing-03); line-height: 1.25rem; vertical-align: middle; }
+fx-toast .toast-copied svg { display: block; flex: none; width: 1.125rem; height: 1.125rem; margin-inline-end: calc(-1 * var(--fx-spacing-02)); }
+fx-toast .toast-copied code:not(.toast-swatch) { padding: 0; border: 0; background: none; color: inherit; font: 600 0.9em / 1.25rem var(--fx-font-mono); }
+
+/* A token or hex in a foundations page: click (or Enter) copies it. */
+code.copyable { cursor: copy; transition: background-color var(--fx-duration-fast-02) var(--fx-easing-standard), border-color var(--fx-duration-fast-02) var(--fx-easing-standard); }
+code.copyable:hover { border-color: var(--fx-interactive); background: var(--fx-interactive-subtle); }
+code.copyable:focus-visible { outline: 2px solid var(--fx-focus); outline-offset: 1px; }
+
+/* The Token List page. */
+.token-search { position: sticky; top: 0; z-index: 1; margin: var(--fx-spacing-05) 0 0; padding: var(--fx-spacing-04) 0 var(--fx-spacing-03); background: var(--fx-background); }
+.token-group h2 { display: flex; align-items: center; gap: var(--fx-spacing-02); }
+.token-group[hidden], [data-token-row][hidden] { display: none; }
+.token-value { font: var(--fx-type-code-01); color: var(--fx-text-secondary); overflow-wrap: anywhere; }
+.token-table mark, .icon-cell mark { border-radius: 2px; background: var(--fx-color-teal-20); color: var(--fx-color-teal-100); }
+.token-empty { color: var(--fx-text-secondary); }
+/* One set of column widths for every group, so the values line up down the page. */
+.token-list { table-layout: fixed; }
+.token-list .name-col { width: 22rem; }
+.token-list td { overflow-wrap: anywhere; }
+.token-list tbody tr { background: var(--fx-layer); }
+.token-list tbody tr.alt { background: color-mix(in srgb, var(--fx-layer) 55%, var(--fx-layer-alt)); }
+.token-list tbody tr:hover { background: var(--docs-hover); }
+@media (max-width: 671.98px) { .token-list .name-col { width: 55%; } }
+.token-list .token-value-cell { display: inline-flex; align-items: center; gap: var(--fx-spacing-03); vertical-align: middle; }
+.token-list td > code { vertical-align: middle; }
+.token-list .token-chip { flex: none; }
+.token-list tbody tr { cursor: copy; }
+/* A gap between sets: each status, each color family. */
+.token-list tbody tr.set-gap, .token-list tbody tr.set-gap:hover { background: var(--fx-background); cursor: default; }
+.token-list tr.set-gap td { height: var(--fx-spacing-06); padding: 0; border-bottom: 1px solid var(--fx-border); }
+.token-list tr.set-gap[hidden] { display: none; }
+
+/* The chart colors: eight a row (two rows), fewer when narrow. */
+.swatches.chart { --cols: 8; }
+@container (max-width: 50rem) { .swatches.chart { --cols: 4; } }
+@container (max-width: 25rem) { .swatches.chart { --cols: 2; } }
+
+/* The rules between the Colors page's sets: chart, hues, grays. */
+.palette-rule { margin: var(--fx-spacing-07) 0 0; border: 0; border-top: 1px solid var(--fx-border); }
+
+/* The hover on All Tokens rows and All Icons cells: a pale teal in light,
+   its dark counterpart (teal 80) in dark. */
+:root { --docs-hover: var(--fx-color-teal-20-hover); }
+@media (prefers-color-scheme: dark) { :root:not([data-fx-theme="light"]) { --docs-hover: var(--fx-color-teal-80-hover); } }
+:root[data-fx-theme="dark"] { --docs-hover: var(--fx-color-teal-80-hover); }
+/* On All Tokens the whole row is the click target: the token name has no
+   fill or hover of its own, so the row's hover covers it too. */
+.token-list code.copyable, .token-list code.copyable:hover { background: transparent; border-color: var(--fx-border); }
+
+/* The Overview's one-line start, right under the lead. */
+.docs-page .start-line { margin: var(--fx-spacing-05) 0 var(--fx-spacing-03); }
+
+/* Trendicators' arrows reach past their circles: room around each. */
+.demo fx-trendicator { margin: calc(var(--_s, 140px) * 0.23) calc(var(--_s, 140px) * 0.1); }

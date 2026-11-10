@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flare UX</title>
+  <meta name="description" content="Flare UX: a pattern library of native web components." />
+  <link rel="icon" type="image/svg+xml" href="docs/favicon.svg" />
+  <link rel="stylesheet" href="src/styles/flare.css" />
+  <link rel="stylesheet" href="docs/docs.css" />
+  <script>
+    // The theme chosen last time, before anything paints.
+    try {
+      const theme = localStorage.getItem("fx.docs.theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.fxTheme = theme;
+    } catch {}
+  </script>
+</head>
+<body>
+  <fx-app-shell storage-key="docs">
+    <a slot="brand" href="#/" class="brand"><span class="brand-mark" aria-hidden="true"></span><span>Flare <b>UX</b></span></a>
+    <fx-button slot="header-actions" id="theme-toggle" variant="text" size="lg" icon="moon" fg-color="var(--fx-shell-header-text)" aria-label="Dark theme"></fx-button>
+    <fx-nav slot="nav" label="Documentation" filter="Find a page"></fx-nav>
+    <span slot="nav-footer" class="nav-footer">v0.1.0</span>
+    <main id="page" class="docs-page" tabindex="-1"></main>
+  </fx-app-shell>
+  <script type="module" src="docs/app.js"></script>
+</body>
+</html>

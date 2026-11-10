@@ -1,0 +1,278 @@
+/* Flare UX design tokens: what the components are drawn with. Built on the
+   --fx-color-* palette (colors.css); a page themes the components by setting
+   these, never by reaching into a shadow root.
+
+   Light by default; dark follows the system unless the page says otherwise
+   with data-fx-theme="light" | "dark" on <html>. */
+
+:root {
+  color-scheme: light;
+
+  /* ------------------------------------------------------------ surfaces */
+  --fx-background: var(--fx-color-gray-10);
+  --fx-layer: var(--fx-color-white);
+  --fx-layer-alt: var(--fx-color-gray-10);
+  --fx-layer-hover: var(--fx-color-gray-10-hover);
+  --fx-layer-selected: var(--fx-color-gray-20);
+  --fx-border: var(--fx-color-gray-20);
+  --fx-border-strong: var(--fx-color-gray-50);
+  --fx-overlay: rgb(22 22 22 / 0.5);
+  /* The reversed surface: tooltips, toasts. */
+  --fx-inverse: var(--fx-color-gray-80);
+  --fx-inverse-text: var(--fx-color-gray-10);
+
+  /* ---------------------------------------------------------------- text */
+  --fx-text: var(--fx-color-gray-100);
+  --fx-text-secondary: var(--fx-color-gray-70);
+  --fx-text-placeholder: var(--fx-color-gray-50);
+  --fx-text-on-color: var(--fx-color-white);
+  --fx-text-disabled: var(--fx-color-gray-40);
+
+  /* --------------------------------------------------------- interactive */
+  /* The fill of a primary action, and its hover. */
+  --fx-interactive: var(--fx-color-blue-60);
+  --fx-interactive-hover: var(--fx-color-blue-60-hover);
+  /* Interactive text and icons: links, a selected tab, a tonal button. */
+  --fx-interactive-text: var(--fx-color-blue-60);
+  /* The quiet fill behind a selected or tonal thing. */
+  --fx-interactive-subtle: var(--fx-color-blue-10);
+  --fx-focus: var(--fx-color-blue-60);
+  --fx-link: var(--fx-color-blue-60);
+  --fx-link-hover: var(--fx-color-blue-70);
+  /* An unchecked control's outline (checkbox, radio). */
+  --fx-control-border: var(--fx-color-gray-70);
+
+  /* -------------------------------------------------------------- status */
+  /* The four alert states. Each has its exact color (the dot, the bar, the
+     icon), a -bg tint behind it, a -text color that passes WCAG AA on both,
+     a -fill for solid surfaces (chips, badges, dialog headers) and an -on
+     color for text on that fill. The fill is the exact color, except error's,
+     which is a step lighter so every fill takes dark text.
+
+       error       fail      #da1e28  red 60
+       incomplete  unknown   #ff832b  orange 40
+       warning     pause     #fddc69  yellow 20
+       success     pass      #24a148  green 50 */
+  --fx-status-error: var(--fx-color-red-60);
+  --fx-status-error-bg: var(--fx-color-red-10);
+  --fx-status-error-text: var(--fx-color-red-60);
+  --fx-status-error-fill: var(--fx-color-red-50);
+  --fx-status-error-on: var(--fx-color-red-100);
+
+  --fx-status-incomplete: var(--fx-color-orange-40);
+  --fx-status-incomplete-bg: var(--fx-color-orange-10);
+  --fx-status-incomplete-text: var(--fx-color-orange-70);
+  --fx-status-incomplete-fill: var(--fx-status-incomplete);
+  --fx-status-incomplete-on: var(--fx-color-orange-100);
+
+  --fx-status-warning: var(--fx-color-yellow-20);
+  --fx-status-warning-bg: var(--fx-color-yellow-10);
+  --fx-status-warning-text: var(--fx-color-yellow-70);
+  --fx-status-warning-fill: var(--fx-status-warning);
+  --fx-status-warning-on: var(--fx-color-yellow-100);
+
+  --fx-status-success: var(--fx-color-green-50);
+  --fx-status-success-bg: var(--fx-color-green-10);
+  --fx-status-success-text: var(--fx-color-green-70);
+  --fx-status-success-fill: var(--fx-status-success);
+  --fx-status-success-on: var(--fx-color-green-100);
+
+  /* Not an alert: something to know, and nothing at all. */
+  --fx-status-info: var(--fx-color-blue-60);
+  --fx-status-info-bg: var(--fx-color-blue-10);
+  --fx-status-info-text: var(--fx-color-blue-70);
+  --fx-status-info-fill: var(--fx-status-info);
+  --fx-status-info-on: var(--fx-color-white);
+
+  --fx-status-neutral: var(--fx-color-gray-50);
+  --fx-status-neutral-bg: var(--fx-color-gray-10);
+  --fx-status-neutral-text: var(--fx-color-gray-70);
+  --fx-status-neutral-fill: var(--fx-color-gray-60);
+  --fx-status-neutral-on: var(--fx-color-white);
+
+  /* The same states by their other names. */
+  --fx-status-fail: var(--fx-status-error);
+  --fx-status-unknown: var(--fx-status-incomplete);
+  --fx-status-pause: var(--fx-status-warning);
+  --fx-status-pass: var(--fx-status-success);
+
+  /* ---------------------------------------------------------- typography */
+  /* The system's own UI font: San Francisco on Apple devices, Segoe UI on
+     Windows, Roboto on Android and ChromeOS -- nothing to download. */
+  --fx-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fx-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* The type scale (12, 14, 16 … 60px), in rem. */
+  --fx-font-size-01: 0.75rem;
+  --fx-font-size-02: 0.875rem;
+  --fx-font-size-03: 1rem;
+  --fx-font-size-04: 1.125rem;
+  --fx-font-size-05: 1.25rem;
+  --fx-font-size-06: 1.5rem;
+  --fx-font-size-07: 1.75rem;
+  --fx-font-size-08: 2rem;
+  --fx-font-size-09: 2.25rem;
+  --fx-font-size-10: 2.625rem;
+  --fx-font-size-11: 3rem;
+  --fx-font-size-12: 3.375rem;
+  --fx-font-size-13: 3.75rem;
+
+  /* The type styles, each a `font` shorthand: font: var(--fx-type-body-01). */
+  --fx-type-label-01: 400 var(--fx-font-size-01) / 1.34 var(--fx-font);
+  --fx-type-helper-01: 400 var(--fx-font-size-01) / 1.34 var(--fx-font);
+  --fx-type-body-compact-01: 400 var(--fx-font-size-02) / 1.29 var(--fx-font);
+  --fx-type-body-01: 400 var(--fx-font-size-02) / 1.43 var(--fx-font);
+  --fx-type-body-02: 400 var(--fx-font-size-03) / 1.5 var(--fx-font);
+  --fx-type-code-01: 400 var(--fx-font-size-01) / 1.34 var(--fx-font-mono);
+  --fx-type-heading-01: 600 var(--fx-font-size-02) / 1.29 var(--fx-font);
+  --fx-type-heading-02: 600 var(--fx-font-size-03) / 1.5 var(--fx-font);
+  --fx-type-heading-03: 400 var(--fx-font-size-05) / 1.4 var(--fx-font);
+  --fx-type-heading-04: 400 var(--fx-font-size-07) / 1.29 var(--fx-font);
+  --fx-type-heading-05: 400 var(--fx-font-size-08) / 1.25 var(--fx-font);
+  --fx-type-heading-06: 300 var(--fx-font-size-10) / 1.2 var(--fx-font);
+  --fx-type-heading-07: 300 var(--fx-font-size-12) / 1.19 var(--fx-font);
+
+  /* ------------------------------------------------------------- spacing */
+  /* The spacing scale: 2, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 160px. */
+  --fx-spacing-01: 0.125rem;
+  --fx-spacing-02: 0.25rem;
+  --fx-spacing-03: 0.5rem;
+  --fx-spacing-04: 0.75rem;
+  --fx-spacing-05: 1rem;
+  --fx-spacing-06: 1.5rem;
+  --fx-spacing-07: 2rem;
+  --fx-spacing-08: 2.5rem;
+  --fx-spacing-09: 3rem;
+  --fx-spacing-10: 4rem;
+  --fx-spacing-11: 5rem;
+  --fx-spacing-12: 6rem;
+  --fx-spacing-13: 10rem;
+
+  /* Control heights, xs to xl: 24, 32, 40, 48, 64px. */
+  --fx-size-xs: 1.5rem;
+  --fx-size-sm: 2rem;
+  --fx-size-md: 2.5rem;
+  --fx-size-lg: 3rem;
+  --fx-size-xl: 4rem;
+
+  /* -------------------------------------------------------------- shape */
+  --fx-radius-sm: 2px;
+  --fx-radius: 4px;
+  --fx-radius-lg: 8px;
+  --fx-radius-xl: 12px;
+  --fx-radius-pill: 999px;
+
+  /* ---------------------------------------------------------- elevation */
+  --fx-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.12);
+  --fx-shadow: 0 2px 6px rgb(0 0 0 / 0.2);
+  --fx-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.24);
+
+  /* -------------------------------------------------------------- motion */
+  /* Durations and easing. Zero under reduced motion. Standard eases in and
+     out (a thing moving within the page); entrance only eases out (arriving
+     fast, settling); exit only eases in (leaving). */
+  --fx-duration-fast-01: 75ms;
+  --fx-duration-fast-02: 100ms;
+  --fx-duration-moderate-01: 150ms;
+  --fx-duration-moderate-02: 250ms;
+  --fx-duration-slow-01: 400ms;
+  --fx-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --fx-easing-entrance: cubic-bezier(0, 0, 0.2, 1);
+  --fx-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ------------------------------------------------------------ layering */
+  --fx-z-dropdown: 1000;
+  --fx-z-drawer: 2000;
+  --fx-z-tooltip: 3000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fx-duration-fast-01: 0ms;
+    --fx-duration-fast-02: 0ms;
+    --fx-duration-moderate-01: 0ms;
+    --fx-duration-moderate-02: 0ms;
+    --fx-duration-slow-01: 0ms;
+  }
+}
+
+/* Dark: a gray 100 page. The block is written twice -- once for the
+   system setting, once for data-fx-theme="dark" -- because a media query
+   cannot share a rule with an attribute selector. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-fx-theme="light"]) {
+    color-scheme: dark;
+    --fx-background: var(--fx-color-gray-100);
+    --fx-layer: var(--fx-color-gray-90);
+    --fx-layer-alt: var(--fx-color-gray-80);
+    --fx-layer-hover: var(--fx-color-gray-90-hover);
+    --fx-layer-selected: var(--fx-color-gray-80);
+    --fx-border: var(--fx-color-gray-80);
+    --fx-border-strong: var(--fx-color-gray-50);
+    --fx-overlay: rgb(0 0 0 / 0.65);
+    --fx-inverse: var(--fx-color-gray-10);
+    --fx-inverse-text: var(--fx-color-gray-100);
+    --fx-text: var(--fx-color-gray-10);
+    --fx-text-secondary: var(--fx-color-gray-30);
+    --fx-text-placeholder: var(--fx-color-gray-50);
+    --fx-text-disabled: var(--fx-color-gray-60);
+    --fx-interactive-text: var(--fx-color-blue-40);
+    --fx-interactive-subtle: color-mix(in srgb, var(--fx-color-blue-60) 22%, var(--fx-layer));
+    --fx-focus: var(--fx-color-white);
+    --fx-link: var(--fx-color-blue-40);
+    --fx-link-hover: var(--fx-color-blue-30);
+    --fx-control-border: var(--fx-color-gray-30);
+    --fx-status-error-text: var(--fx-color-red-40);
+    --fx-status-error-bg: color-mix(in srgb, var(--fx-color-red-60) 18%, var(--fx-layer));
+    --fx-status-incomplete-text: var(--fx-color-orange-40);
+    --fx-status-incomplete-bg: color-mix(in srgb, var(--fx-color-orange-40) 16%, var(--fx-layer));
+    --fx-status-warning-text: var(--fx-color-yellow-20);
+    --fx-status-warning-bg: color-mix(in srgb, var(--fx-color-yellow-20) 14%, var(--fx-layer));
+    --fx-status-success-text: var(--fx-color-green-40);
+    --fx-status-success-bg: color-mix(in srgb, var(--fx-color-green-50) 18%, var(--fx-layer));
+    --fx-status-info-text: var(--fx-color-blue-40);
+    --fx-status-info-bg: color-mix(in srgb, var(--fx-color-blue-60) 20%, var(--fx-layer));
+    --fx-status-neutral-text: var(--fx-color-gray-30);
+    --fx-status-neutral-bg: var(--fx-color-gray-80);
+    --fx-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+    --fx-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.6);
+  }
+}
+
+:root[data-fx-theme="dark"] {
+  color-scheme: dark;
+  --fx-background: var(--fx-color-gray-100);
+  --fx-layer: var(--fx-color-gray-90);
+  --fx-layer-alt: var(--fx-color-gray-80);
+  --fx-layer-hover: var(--fx-color-gray-90-hover);
+  --fx-layer-selected: var(--fx-color-gray-80);
+  --fx-border: var(--fx-color-gray-80);
+  --fx-border-strong: var(--fx-color-gray-50);
+  --fx-overlay: rgb(0 0 0 / 0.65);
+  --fx-inverse: var(--fx-color-gray-10);
+  --fx-inverse-text: var(--fx-color-gray-100);
+  --fx-text: var(--fx-color-gray-10);
+  --fx-text-secondary: var(--fx-color-gray-30);
+  --fx-text-placeholder: var(--fx-color-gray-50);
+  --fx-text-disabled: var(--fx-color-gray-60);
+  --fx-interactive-text: var(--fx-color-blue-40);
+  --fx-interactive-subtle: color-mix(in srgb, var(--fx-color-blue-60) 22%, var(--fx-layer));
+  --fx-focus: var(--fx-color-white);
+  --fx-link: var(--fx-color-blue-40);
+  --fx-link-hover: var(--fx-color-blue-30);
+  --fx-control-border: var(--fx-color-gray-30);
+  --fx-status-error-text: var(--fx-color-red-40);
+  --fx-status-error-bg: color-mix(in srgb, var(--fx-color-red-60) 18%, var(--fx-layer));
+  --fx-status-incomplete-text: var(--fx-color-orange-40);
+  --fx-status-incomplete-bg: color-mix(in srgb, var(--fx-color-orange-40) 16%, var(--fx-layer));
+  --fx-status-warning-text: var(--fx-color-yellow-20);
+  --fx-status-warning-bg: color-mix(in srgb, var(--fx-color-yellow-20) 14%, var(--fx-layer));
+  --fx-status-success-text: var(--fx-color-green-40);
+  --fx-status-success-bg: color-mix(in srgb, var(--fx-color-green-50) 18%, var(--fx-layer));
+  --fx-status-info-text: var(--fx-color-blue-40);
+  --fx-status-info-bg: color-mix(in srgb, var(--fx-color-blue-60) 20%, var(--fx-layer));
+  --fx-status-neutral-text: var(--fx-color-gray-30);
+  --fx-status-neutral-bg: var(--fx-color-gray-80);
+  --fx-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+  --fx-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.6);
+}
