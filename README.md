@@ -22,16 +22,16 @@ component with live examples and API tables.
 ## Use it
 
 ```sh
-npm install @run-time/flare-ux      # npm update @run-time/flare-ux to upgrade
+npm install @run.time/flare-ux      # npm update @run.time/flare-ux to upgrade
 ```
 
 With a bundler (Vite, esbuild, …):
 
 ```js
-import "@run-time/flare-ux/flare.css";                  // tokens, colors, base styles
-import "@run-time/flare-ux";                            // every component and icon
-import "@run-time/flare-ux/components/fx-button.js";    // or only what a page uses
-import { toast } from "@run-time/flare-ux/components/fx-toast.js";
+import "@run.time/flare-ux/flare.css";                  // tokens, colors, base styles
+import "@run.time/flare-ux";                            // every component and icon
+import "@run.time/flare-ux/components/fx-button.js";    // or only what a page uses
+import { toast } from "@run.time/flare-ux/components/fx-toast.js";
 ```
 
 ```html
@@ -39,14 +39,14 @@ import { toast } from "@run-time/flare-ux/components/fx-toast.js";
 <fx-status-chip tone="pass">Passed</fx-status-chip>
 ```
 
-The package exports `@run-time/flare-ux`, `/components/*`, `/icons/*`,
+The package exports `@run.time/flare-ux`, `/components/*`, `/icons/*`,
 `/lib/*`, `/styles/*` and `/flare.css` (and `/src/*` for the full paths).
 
 Without installing anything, load it from a CDN (pin a version):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/src/styles/flare.css">
-<script type="module" src="https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/src/index.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@run.time/flare-ux@0.1/src/styles/flare.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@run.time/flare-ux@0.1/src/index.js"></script>
 ```
 
 ## Release

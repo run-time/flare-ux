@@ -10,17 +10,17 @@ component's examples and full API.
 ## Setup
 
 ```sh
-npm install @run-time/flare-ux
+npm install @run.time/flare-ux
 ```
 
 ```js
-import "@run-time/flare-ux/flare.css";   // tokens, colors, base styles
-import "@run-time/flare-ux";             // every component and icon
+import "@run.time/flare-ux/flare.css";   // tokens, colors, base styles
+import "@run.time/flare-ux";             // every component and icon
 ```
 
-Or import one component: `import "@run-time/flare-ux/components/fx-button.js";`.
+Or import one component: `import "@run.time/flare-ux/components/fx-button.js";`.
 Without a bundler, load `src/styles/flare.css` and `src/index.js` from
-`https://cdn.jsdelivr.net/npm/@run-time/flare-ux@0.1/`.
+`https://cdn.jsdelivr.net/npm/@run.time/flare-ux@0.1/`.
 No build step, no framework: components are plain HTML elements and work in any
 framework's templates.
 
@@ -81,7 +81,7 @@ framework's templates.
 | A side panel | `<fx-drawer headline="…">` |
 | A hint on hover | `<fx-tool-tip text="…">…</fx-tool-tip>` |
 | A message in the page | `<fx-notification tone="error" headline="…">` |
-| A brief message that goes away | `import { toast } from "@run-time/flare-ux/components/fx-toast.js"; toast("Saved", { tone: "success" })` |
+| A brief message that goes away | `import { toast } from "@run.time/flare-ux/components/fx-toast.js"; toast("Saved", { tone: "success" })` |
 | A state on an item | `<fx-status-chip tone="fail">Failed</fx-status-chip>` |
 | A count | `<fx-count-badge tone="error">3</fx-count-badge>` (or `color="teal"`) |
 | A label or filter chip | `<fx-tag>`; `label="Repo" removable` for a set filter, `selectable` for a toggle |

@@ -1,5 +1,5 @@
 {
-  "name": "@run-time/flare-ux",
+  "name": "@run.time/flare-ux",
   "version": "0.1.0",
   "description": "Flare UX: a pattern library of native web components, with its own color, type, spacing and icon tokens.",
   "license": "Unlicense",

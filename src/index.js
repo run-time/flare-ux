@@ -1,8 +1,8 @@
 // Flare UX: every component, defined on import.
 //
-//   import "@run-time/flare-ux"; // all components and icons
+//   import "@run.time/flare-ux"; // all components and icons
 //
-// Or import only what a page uses: "@run-time/flare-ux/components/fx-button.js".
+// Or import only what a page uses: "@run.time/flare-ux/components/fx-button.js".
 // Every module defines its element once, so importing one twice is safe.
 
 export { FxFormControl } from "./components/fx-form-control.js";
